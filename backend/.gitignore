@@ -1,51 +1,24 @@
-.env
+# Rails Master Key
+/config/master.key
 
-/public/uploads
+# testing
+/coverage
 
-# rails ignore
-/.bundle
+# log
 /log/*
-/tmp/*
 !/log/.keep
+
+# tmp
+/tmp/*
 !/tmp/.keep
-.byebug_history
-.DS_Store
-.rbc
-capybara-.html
-.rspec
+
+## Ignore SQLite database files
 /db/*.sqlite3
-/db/.sqlite3
-/db/.sqlite3-journal
-/db/.sqlite3-[0-9]*
-/public/system
-/coverage/
-/spec/tmp
-.orig
-rerun.txt
-pickle-email-.html
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/db/*.sqlite3-journal
+
+# env files
 .env
 .env.*
-/.bundle
-/vendor/bundle
-.rvmrc
-.bowerrc
-bower.json
-.powenv
-.byebug_history
-/public/packs
-/public/packs-test
-/public/assets
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-/storage/*
-!/storage/.keep
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
+
+# images
+/public/uploads
