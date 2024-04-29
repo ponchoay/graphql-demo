@@ -1,27 +1,13 @@
-import { gql, useQuery } from '@apollo/client'
-
-type Book = {
-  id: number
-  title: string
-}
+import { useBooksQuery } from '@/graphql/generated/graphql'
 
 export default function Home() {
-  const FETCH_BOOKS = gql(`
-    query {
-        books {
-          id
-          title
-        }
-    }
-  `)
-
-  const { data, loading } = useQuery(FETCH_BOOKS)
+  const { data, loading } = useBooksQuery()
 
   return (
     <div>
       <h1>GraphQL demo</h1>
       {loading && <div>読み込み中</div>}
-      {!loading && data.books.map((book: Book) => <p key={book.id}>{book.title}</p>)}
+      {!loading && data && data.books.map((book) => <p key={book.id}>{book.title}</p>)}
     </div>
   )
 }
