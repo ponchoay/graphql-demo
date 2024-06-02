@@ -115,15 +115,15 @@ export type UpdateBookPayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>
 }
 
-export type BooksQueryVariables = Exact<{ [key: string]: never }>
+export type FetchBooksQueryVariables = Exact<{ [key: string]: never }>
 
-export type BooksQuery = {
+export type FetchBooksQuery = {
   __typename?: 'Query'
   books: Array<{ __typename?: 'Book'; id: string; title?: string | null }>
 }
 
-export const BooksDocument = gql`
-  query books {
+export const FetchBooksDocument = gql`
+  query fetchBooks {
     books {
       id
       title
@@ -132,39 +132,42 @@ export const BooksDocument = gql`
 `
 
 /**
- * __useBooksQuery__
+ * __useFetchBooksQuery__
  *
- * To run a query within a React component, call `useBooksQuery` and pass it any options that fit your needs.
- * When your component renders, `useBooksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useFetchBooksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFetchBooksQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useBooksQuery({
+ * const { data, loading, error } = useFetchBooksQuery({
  *   variables: {
  *   },
  * });
  */
-export function useBooksQuery(
-  baseOptions?: Apollo.QueryHookOptions<BooksQuery, BooksQueryVariables>
+export function useFetchBooksQuery(
+  baseOptions?: Apollo.QueryHookOptions<FetchBooksQuery, FetchBooksQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<BooksQuery, BooksQueryVariables>(BooksDocument, options)
+  return Apollo.useQuery<FetchBooksQuery, FetchBooksQueryVariables>(FetchBooksDocument, options)
 }
-export function useBooksLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<BooksQuery, BooksQueryVariables>
+export function useFetchBooksLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<FetchBooksQuery, FetchBooksQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<BooksQuery, BooksQueryVariables>(BooksDocument, options)
+  return Apollo.useLazyQuery<FetchBooksQuery, FetchBooksQueryVariables>(FetchBooksDocument, options)
 }
-export function useBooksSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<BooksQuery, BooksQueryVariables>
+export function useFetchBooksSuspenseQuery(
+  baseOptions?: Apollo.SuspenseQueryHookOptions<FetchBooksQuery, FetchBooksQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useSuspenseQuery<BooksQuery, BooksQueryVariables>(BooksDocument, options)
+  return Apollo.useSuspenseQuery<FetchBooksQuery, FetchBooksQueryVariables>(
+    FetchBooksDocument,
+    options
+  )
 }
-export type BooksQueryHookResult = ReturnType<typeof useBooksQuery>
-export type BooksLazyQueryHookResult = ReturnType<typeof useBooksLazyQuery>
-export type BooksSuspenseQueryHookResult = ReturnType<typeof useBooksSuspenseQuery>
-export type BooksQueryResult = Apollo.QueryResult<BooksQuery, BooksQueryVariables>
+export type FetchBooksQueryHookResult = ReturnType<typeof useFetchBooksQuery>
+export type FetchBooksLazyQueryHookResult = ReturnType<typeof useFetchBooksLazyQuery>
+export type FetchBooksSuspenseQueryHookResult = ReturnType<typeof useFetchBooksSuspenseQuery>
+export type FetchBooksQueryResult = Apollo.QueryResult<FetchBooksQuery, FetchBooksQueryVariables>

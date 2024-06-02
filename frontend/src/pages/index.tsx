@@ -1,7 +1,7 @@
-import { useBooksQuery } from '@/graphql/generated/graphql'
+import { useFetchBooksQuery } from '@/graphql/generated/graphql'
 
 export default function Home() {
-  const { data, loading } = useBooksQuery()
+  const { data, loading } = useFetchBooksQuery()
 
   return (
     <div>
