@@ -1,11 +1,26 @@
-import { useFetchBooksQuery } from '@/graphql/generated/graphql'
+import { useCreateBookMutation, useFetchBooksQuery } from '@/graphql/generated/graphql'
+import { useState } from 'react'
 
 export default function Home() {
   const { data, loading } = useFetchBooksQuery()
+  const [createBook] = useCreateBookMutation({ refetchQueries: ['fetchBooks'] })
+  const [title, setTitle] = useState('')
 
   return (
     <div>
-      <h1>GraphQL demo</h1>
+      <h1>書籍一覧</h1>
+
+      <div>
+        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <button
+          onClick={() => {
+            createBook({ variables: { input: { title: title } } })
+            setTitle('')
+          }}
+        >
+          保存
+        </button>
+      </div>
       {loading && <div>読み込み中</div>}
       {!loading && data && data.books.map((book) => <p key={book.id}>{book.title}</p>)}
     </div>
