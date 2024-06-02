@@ -1,9 +1,14 @@
-import { useCreateBookMutation, useFetchBooksQuery } from '@/graphql/generated/graphql'
+import {
+  useCreateBookMutation,
+  useDestroyBookMutation,
+  useFetchBooksQuery
+} from '@/graphql/generated/graphql'
 import { useState } from 'react'
 
 export default function Home() {
   const { data, loading } = useFetchBooksQuery()
   const [createBook] = useCreateBookMutation({ refetchQueries: ['fetchBooks'] })
+  const [destroyBook] = useDestroyBookMutation({ refetchQueries: ['fetchBooks'] })
   const [title, setTitle] = useState('')
 
   return (
@@ -22,7 +27,20 @@ export default function Home() {
         </button>
       </div>
       {loading && <div>読み込み中</div>}
-      {!loading && data && data.books.map((book) => <p key={book.id}>{book.title}</p>)}
+      {!loading &&
+        data &&
+        data.books.map((book) => (
+          <div key={book.id} className="flex">
+            <p>{book.title}</p>
+            <button
+              onClick={() => {
+                destroyBook({ variables: { input: { id: book.id } } })
+              }}
+            >
+              削除
+            </button>
+          </div>
+        ))}
     </div>
   )
 }

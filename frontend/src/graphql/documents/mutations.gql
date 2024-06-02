@@ -6,3 +6,11 @@ mutation CreateBook($input: CreateBookInput!) {
     }
   }
 }
+
+mutation DestroyBook($input: DestroyBookInput!) {
+  destroyBook(input: $input) {
+    book {
+      id
+    }
+  }
+}
