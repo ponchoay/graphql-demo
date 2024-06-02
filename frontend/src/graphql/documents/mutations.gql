@@ -1,0 +1,25 @@
+mutation CreateBook($input: CreateBookInput!) {
+  createBook(input: $input) {
+    book {
+      id
+      title
+    }
+  }
+}
+
+mutation DestroyBook($input: DestroyBookInput!) {
+  destroyBook(input: $input) {
+    book {
+      id
+    }
+  }
+}
+
+mutation UpdateBook($input: UpdateBookInput!) {
+  updateBook(input: $input) {
+    book {
+      id
+      title
+    }
+  }
+}
