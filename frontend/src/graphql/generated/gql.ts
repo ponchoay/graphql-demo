@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}\n\nmutation DestroyBook($id: ID!) {\n  destroyBook(input: {id: $id}) {\n    book {\n      id\n    }\n  }\n}": types.CreateBookDocument,
+    "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}\n\nmutation DestroyBook($input: DestroyBookInput!) {\n  destroyBook(input: $input) {\n    book {\n      id\n    }\n  }\n}\n\nmutation UpdateBook($input: UpdateBookInput!) {\n  updateBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}": types.CreateBookDocument,
     "query fetchBooks {\n  books {\n    id\n    title\n  }\n}": types.FetchBooksDocument,
 };
 
@@ -34,7 +34,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}\n\nmutation DestroyBook($id: ID!) {\n  destroyBook(input: {id: $id}) {\n    book {\n      id\n    }\n  }\n}"): (typeof documents)["mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}\n\nmutation DestroyBook($id: ID!) {\n  destroyBook(input: {id: $id}) {\n    book {\n      id\n    }\n  }\n}"];
+export function graphql(source: "mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}\n\nmutation DestroyBook($input: DestroyBookInput!) {\n  destroyBook(input: $input) {\n    book {\n      id\n    }\n  }\n}\n\nmutation UpdateBook($input: UpdateBookInput!) {\n  updateBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}"): (typeof documents)["mutation CreateBook($input: CreateBookInput!) {\n  createBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}\n\nmutation DestroyBook($input: DestroyBookInput!) {\n  destroyBook(input: $input) {\n    book {\n      id\n    }\n  }\n}\n\nmutation UpdateBook($input: UpdateBookInput!) {\n  updateBook(input: $input) {\n    book {\n      id\n      title\n    }\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

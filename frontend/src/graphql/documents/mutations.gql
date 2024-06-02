@@ -14,3 +14,12 @@ mutation DestroyBook($input: DestroyBookInput!) {
     }
   }
 }
+
+mutation UpdateBook($input: UpdateBookInput!) {
+  updateBook(input: $input) {
+    book {
+      id
+      title
+    }
+  }
+}
